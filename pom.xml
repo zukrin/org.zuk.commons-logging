@@ -246,7 +246,7 @@
 	<scm>
 		<connection>scm:git:git://github.com/zukrin/${project.groupId}.${project.artifactId}.git</connection>
 		<url>scm:git:git://github.com/zukrin/${project.groupId}.${project.artifactId}.git</url>
-		<developerConnection>scm:git:git://github.com/zukrin/${project.groupId}.${project.artifactId}.git</developerConnection>
+		<developerConnection>scm:git:git@github.com:zukrin/org.zuk.commons-logging.git</developerConnection>
 	</scm>
 
 	<organization>
