@@ -100,7 +100,7 @@
 				<artifactId>maven-assembly-plugin</artifactId>
 				<configuration>
 					<descriptors>
-						<descriptor>assembly-web-app-dist.xml</descriptor>
+						<descriptor>assembly-dist.xml</descriptor>
 					</descriptors>
 					<finalName>${project.artifactId}-${project.version}</finalName>
 				</configuration>
@@ -244,7 +244,9 @@
 	</reporting>
 
 	<scm>
-		<connection>scm:git:ssh://github.com/zukrin/${project.groupId}.${project.artifactId}.git</connection>
+		<connection>scm:git:git://github.com/zukrin/${project.groupId}.${project.artifactId}.git</connection>
+		<url>scm:git:git://github.com/zukrin/${project.groupId}.${project.artifactId}.git</url>
+		<developerConnection>scm:git:git://github.com/zukrin/${project.groupId}.${project.artifactId}.git</developerConnection>
 	</scm>
 
 	<organization>
