@@ -6,22 +6,27 @@ import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
 
 /**
- * Consente la scrittura nel file di log da parte di classi che preferiscono
- * scrivere il debug in PrintStream, come, per es. {@link javax.mail.Session}.
+ * Some classes use to write logging comments into PrintStream implementations
+ * (i.e. {@link javax.mail.Session}: this class allow to capture that output
+ * redirecting to the usual logging output.
  * <p>
- * 
  * 
  * 
  * @version 1.0
  * @since 1.6.10
- * @author <a href="mailto:stefano.zuccaro@postecom.it">Stefano Zuccaro</a>
+ * @author <a href="="mailto:zukrin@gmail.com" alt="zukrin@gmail.com">zukrin</a>
  * 
  */
 public class LoggingPrintStream extends PrintStream {
-	private PostecomLogger logger;
-	private POSTECOM_LOGGER_LEVEL level;
+	private SimpleLogger logger;
+	private LOGGER_LEVEL level;
 
-	public LoggingPrintStream(PostecomLogger logger, POSTECOM_LOGGER_LEVEL level) {
+	/**
+	 * 
+	 * @param logger
+	 * @param level
+	 */
+	public LoggingPrintStream(SimpleLogger logger, LOGGER_LEVEL level) {
 		super(NULL_OUTPUTSTREAM);
 		this.logger = logger;
 		this.level = level;
@@ -69,8 +74,7 @@ public class LoggingPrintStream extends PrintStream {
 		 * @see java.io.OutputStream#write(int)
 		 */
 		@Override
-		public void write(int b) throws IOException {
-		}
+		public void write(int b) throws IOException {}
 
 		/*
 		 * (non-Javadoc)
@@ -78,8 +82,7 @@ public class LoggingPrintStream extends PrintStream {
 		 * @see java.io.OutputStream#close()
 		 */
 		@Override
-		public void close() throws IOException {
-		}
+		public void close() throws IOException {}
 
 		/*
 		 * (non-Javadoc)
@@ -87,8 +90,7 @@ public class LoggingPrintStream extends PrintStream {
 		 * @see java.io.OutputStream#flush()
 		 */
 		@Override
-		public void flush() throws IOException {
-		}
+		public void flush() throws IOException {}
 
 		/*
 		 * (non-Javadoc)
@@ -96,8 +98,7 @@ public class LoggingPrintStream extends PrintStream {
 		 * @see java.io.OutputStream#write(byte[], int, int)
 		 */
 		@Override
-		public void write(byte[] b, int off, int len) throws IOException {
-		}
+		public void write(byte[] b, int off, int len) throws IOException {}
 
 		/*
 		 * (non-Javadoc)
@@ -105,8 +106,7 @@ public class LoggingPrintStream extends PrintStream {
 		 * @see java.io.OutputStream#write(byte[])
 		 */
 		@Override
-		public void write(byte[] b) throws IOException {
-		}
+		public void write(byte[] b) throws IOException {}
 
 	};
 

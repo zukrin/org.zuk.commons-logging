@@ -1,7 +1,7 @@
 package org.zuk.commons.logging;
 
 /**
- * Tabella di equivalenza:<br>
+ * Equivalence table<br>
  * <table border ="1">
  * <tr>
  * <th>POSTECOM_LOGGER_LEVEL</th>
@@ -46,9 +46,7 @@ package org.zuk.commons.logging;
  * </table>
  * 
  * 
- * @author <a
- *         href="="mailto:stefano.zuccaro@postecom.it" alt="stefano.zuccaro@postecom.
- *         it">Stefano Zuccaro</a>
+ * @author <a href="="mailto:zukrin@gmail.com" alt="zukrin@gmail.com">zukrin</a>
  * @since 1.6.6
  */
 public enum LOGGER_LEVEL {
@@ -63,7 +61,7 @@ public enum LOGGER_LEVEL {
 
 	private java.util.logging.Level javaLoggingLevel;
 
-	POSTECOM_LOGGER_LEVEL(int priority, org.apache.log4j.Level log4jLevel, java.util.logging.Level javaLoggingLevel) {
+	LOGGER_LEVEL(int priority, org.apache.log4j.Level log4jLevel, java.util.logging.Level javaLoggingLevel) {
 		this.priority = priority;
 		this.log4jLevel = log4jLevel;
 		this.javaLoggingLevel = javaLoggingLevel;

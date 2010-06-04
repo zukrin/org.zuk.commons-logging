@@ -17,13 +17,13 @@ import java.util.logging.Logger;
  * degli application server di Sun.
  * <p>
  * E' possibile implementare il proprio <code>LogProducer</code> ed utilizzare
- * il metodo {@link PostecomLoggerBaseLoggerImpl#setProducer(LogProducer)} per
+ * il metodo {@link SimpleLoggerBasicLoggerImpl#setProducer(LogProducer)} per
  * sostituirlo a quello di default.
  * <p>
  * A differenza di log4j (e altri) non richiede la gerarchia alla creazione e si
  * occupa di ricostruirla in autonomia dallo stacktrace opportunamente creato.
  * <p>
- * Come {@link PostecomLogger} espone metodi di logging che accettano un numero
+ * Come {@link SimpleLogger} espone metodi di logging che accettano un numero
  * variabile di argomenti e sostisuisce i valori passati ai mark inseriti
  * opportunamente nel messaggio. Per esempio:<br>
  * <code>info("esempio di log fatto da {0} per {1}","pippo","pluto");</code>
@@ -34,12 +34,10 @@ import java.util.logging.Logger;
  * <p>
  * 
  * 
- * @author <a
- *         href="="mailto:stefano.zuccaro@postecom.it" alt="stefano.zuccaro@postecom.
- *         it">Stefano Zuccaro</a>
+ * @author <a href="="mailto:zukrin@gmail.com" alt="zukrin@gmail.com">zukrin</a>
  * @since 1.6.6
  */
-public class PostecomLoggerBaseLoggerImpl extends PostecomLogger {
+public class SimpleLoggerBasicLoggerImpl extends SimpleLogger {
 
 	/**
 	 * Costruttore.
@@ -54,14 +52,16 @@ public class PostecomLoggerBaseLoggerImpl extends PostecomLogger {
 	 */
 	private static ConsoleHandler handler;
 
-	static
-	{
+	static {
 		handler = new EasyConsoleHandler();
 		handler.setLevel(Level.ALL);
 	}
-	
-	protected PostecomLoggerBaseLoggerImpl(Class<?> claz) {
-	}
+
+	/**
+	 * 
+	 * @param claz
+	 */
+	protected SimpleLoggerBasicLoggerImpl(Class<?> claz) {}
 
 	/**
 	 * metodo generico per il logging.
@@ -74,7 +74,7 @@ public class PostecomLoggerBaseLoggerImpl extends PostecomLogger {
 	 * @param args
 	 */
 	@Override
-	protected void log(POSTECOM_LOGGER_LEVEL level, Throwable t, String pattern, Object... args) {
+	protected void log(LOGGER_LEVEL level, Throwable t, String pattern, Object... args) {
 		if (isEnabledFor(level)) {
 
 			Exception e = new Exception();
@@ -110,19 +110,40 @@ public class PostecomLoggerBaseLoggerImpl extends PostecomLogger {
 		}
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.zuk.commons.logging.SimpleLogger#log(org.zuk.commons.logging.LOGGER_LEVEL
+	 * , java.lang.String, java.lang.Object[])
+	 */
 	@Override
-	protected void log(POSTECOM_LOGGER_LEVEL level, String pattern, Object... objects) {
+	protected void log(LOGGER_LEVEL level, String pattern, Object... objects) {
 		log(level, null, pattern, objects);
 
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.zuk.commons.logging.SimpleLogger#isEnabledFor(org.zuk.commons.logging
+	 * .LOGGER_LEVEL)
+	 */
 	@Override
-	protected boolean isEnabledFor(POSTECOM_LOGGER_LEVEL level) {
+	protected boolean isEnabledFor(LOGGER_LEVEL level) {
 		return level.getJavaLoggingLevel().intValue() >= handler.getLevel().intValue();
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.zuk.commons.logging.SimpleLogger#setLevel(org.zuk.commons.logging
+	 * .LOGGER_LEVEL)
+	 */
 	@Override
-	public void setLevel(POSTECOM_LOGGER_LEVEL level) {
+	public void setLevel(LOGGER_LEVEL level) {
 		handler.setLevel(level.getJavaLoggingLevel());
 
 	}

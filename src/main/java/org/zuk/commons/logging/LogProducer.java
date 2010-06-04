@@ -1,21 +1,19 @@
 package org.zuk.commons.logging;
 
 /**
- * Le implementazioni di <code>LogProduce</code> si occupano di produrre
- * fisicamente il log per il <code>PostecomLoggerBaseLoggerImpl</code>.
+ * <code>LogProducer</code> implementations are used to produce the log output.
  * <p>
  * 
  * 
- * @author <a
- *         href="="mailto:stefano.zuccaro@postecom.it" alt="stefano.zuccaro@postecom.
- *         it">Stefano Zuccaro</a>
+ * 
+ * @author <a href="="mailto:zukrin@gmail.com" alt="zukrin@gmail.com">zukrin</a>
  * @since 1.6.5
  */
-public interface LogProducer
-{
+public interface LogProducer {
+
 	/**
-	 * Produce una riga di log con un <code>Throwable</code>, di cui si occupa di
-	 * scrivere lo stacktrace, e un messaggio <code>message</code>.
+	 * Writes a line of log whith the {@link Throwable} stacktrace and the
+	 * message.
 	 * <p>
 	 * 
 	 * 
@@ -25,7 +23,8 @@ public interface LogProducer
 	public void log(Throwable t, String message);
 
 	/**
-	 * Produce una riga di log scrivendo il messaggio <code>message</code>.
+	 * Writes a line og LOG with the passed message.
+	 * <p>
 	 * <p>
 	 * 
 	 * 
