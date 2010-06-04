@@ -1,8 +1,9 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.zuk</groupId>
 	<artifactId>commons-logging</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<name>commons-logging</name>
 
 	<properties>
@@ -205,7 +206,8 @@
 			<!--
 				<plugin> <groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-changelog-plugin</artifactId>
-				<version>2.1</version> </plugin -->
+				<version>2.1</version> </plugin
+			-->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jxr-plugin</artifactId>
@@ -249,10 +251,29 @@
 	</reporting>
 
 	<scm>
-		<connection>scm:git:git@github.com:zukrin/${project.groupId}.${project.artifactId}.git</connection>
-		<url>scm:git:git@github.com:zukrin/${project.groupId}.${project.artifactId}.git</url>
-		<developerConnection>scm:git:git@github.com:zukrin/${project.groupId}.${project.artifactId}.git</developerConnection>
+		<connection>scm:git:git@github.com:zukrin/${project.groupId}.${project.artifactId}.git
+		</connection>
+		<url>scm:git:git@github.com:zukrin/${project.groupId}.${project.artifactId}.git
+		</url>
+		<developerConnection>scm:git:git@github.com:zukrin/${project.groupId}.${project.artifactId}.git
+		</developerConnection>
 	</scm>
+
+
+	<distributionManagement>
+		<repository>
+			<id>sonatype-nexus-staging</id>
+			<name>Sonatype Release</name>
+			<url>http://oss.sonatype.org/service/local/staging/deploy/maven2
+			</url>
+		</repository>
+		<snapshotRepository>
+			<id>sonatype-nexus-snapshots</id>
+			<name>sonatype-nexus-snapshots</name>
+			<url>http://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+
 
 	<organization>
 		<name>zuk.org</name>
