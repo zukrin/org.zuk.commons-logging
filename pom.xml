@@ -1,9 +1,10 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>org.zuk</groupId>
-  <artifactId>commons-logging</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>commons-logging</name>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.zuk</groupId>
+	<artifactId>commons-logging</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>commons-logging</name>
 
 	<properties>
 		<m2st-syntaxHighlighter-urlBase>syntaxhighlighter</m2st-syntaxHighlighter-urlBase>
@@ -26,38 +27,6 @@
 			<version>1.2.14</version>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
-			<groupId>com.sun</groupId>
-			<artifactId>sjsas</artifactId>
-			<version>9.1</version>
-			<type>pom</type>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<!-- opzionale, ecj e' preferito -->
-			<groupId>janino</groupId>
-			<artifactId>janino</artifactId>
-			<version>2.5.16</version>
-			<scope>provided</scope>
-		</dependency>
-		<!-- -->
-		<dependency>
-			<groupId>net.htmlparser.jericho</groupId>
-			<artifactId>jericho-html</artifactId>
-			<version>3.1</version>
-		</dependency>
-		<!-- -->
-
-		<dependency>
-			<groupId>PosteIt.PostecomCommons</groupId>
-			<artifactId>PostecomCommons</artifactId>
-			<version>1.6.14-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>org.eclipse.jdt.core.compiler</groupId>
-			<artifactId>ecj</artifactId>
-			<version>3.5.2</version>
-		</dependency>
 	</dependencies>
 
 	<build>
@@ -67,8 +36,6 @@
 				<filtering>true</filtering>
 			</resource>
 		</resources>
-
-
 
 		<pluginManagement>
 			<plugins>
@@ -80,53 +47,6 @@
 		</pluginManagement>
 
 		<plugins>
-
-			<plugin>
-				<groupId>org.jvnet.jaxb2.maven2</groupId>
-				<artifactId>maven-jaxb2-plugin</artifactId>
-				<version>0.6.3</version>
-				<executions>
-					<execution>
-						<phase>validate</phase>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<generateDirectory>${basedir}/src/generated/java
-					</generateDirectory>
-					<schemaDirectory>${basedir}/src/main/resources/META-INF
-					</schemaDirectory>
-					<schemaIncludes>
-						<include>**/*-v1_*.xsd</include>
-					</schemaIncludes>
-					<generatePackage>it.postecom.commons.tags.jaxb</generatePackage>
-					<verbose>true</verbose>
-					<forceRegenerate>true</forceRegenerate>
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>build-helper-maven-plugin</artifactId>
-				<version>1.1</version>
-				<executions>
-					<execution>
-						<id>add-source</id>
-						<phase>generate-sources</phase>
-						<goals>
-							<goal>add-source</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<sources>
-						<source>${basedir}/src/generated/java</source>
-					</sources>
-				</configuration>
-			</plugin>
-
 			<plugin>
 				<artifactId>maven-deploy-plugin</artifactId>
 				<version>2.3</version>
@@ -159,14 +79,7 @@
 			<plugin>
 				<artifactId>maven-surefire-plugin</artifactId>
 			</plugin>
-			<!--
-				<plugin> <groupId>org.codehaus.mojo</groupId>
-				<artifactId>buildnumber-maven-plugin</artifactId> <executions>
-				<execution> <phase>validate</phase> <goals> <goal>create</goal>
-				</goals> </execution> </executions> <configuration>
-				<doCheck>true</doCheck> <doUpdate>true</doUpdate> </configuration>
-				</plugin>
-			-->
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
@@ -330,39 +243,19 @@
 		</plugins>
 	</reporting>
 
-	<distributionManagement>
-		<repository>
-			<id>dist-release</id>
-			<name>Postecom Distribution Releases</name>
-			<url>${urlPostecomDistRelease}</url>
-		</repository>
-		<snapshotRepository>
-			<id>dist-snap</id>
-			<name>Postecom Distribution Snapshots</name>
-			<url>${urlPostecomDistSnap}</url>
-		</snapshotRepository>
-		<site>
-			<id>dist-site</id>
-			<name>Postecom Distribution Site</name>
-			<url>
-				${urlPostecomDistSite}/${project.groupId}/${project.artifactId}
-			</url>
-		</site>
-	</distributionManagement>
-
 	<scm>
 		<connection>scm:git:ssh://github.com/zukrin/${project.groupId}.${project.artifactId}.git</connection>
 	</scm>
 
 	<organization>
 		<name>zuk.org</name>
-		<url>http://www.postecom.it</url>
+		<url>http://cr4dummies.blogspot.com/</url>
 	</organization>
 	<developers>
 		<developer>
-			<id>stefano.zuccaro</id>
-			<name>Stefano Zuccaro</name>
-			<email>stefano.zuccaro@postecom.it</email>
+			<id>zukrin</id>
+			<name>zukrin</name>
+			<email>zukrin@gmail.com</email>
 		</developer>
 	</developers>
 
